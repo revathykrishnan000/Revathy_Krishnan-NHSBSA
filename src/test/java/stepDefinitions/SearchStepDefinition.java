@@ -92,7 +92,7 @@ public class SearchStepDefinition {
 
 
             // Check if the searchKeyword is contained in any of these fields
-            return resultTitleLower.contains(keyword.toLowerCase(Locale.ROOT)) && resultEmployerLower.contains(employer) ||
+            return resultTitleLower.contains(keyword.toLowerCase(Locale.ROOT))||
                     resultEmployerLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
                     resultLocationLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
                     resultDistanceLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
