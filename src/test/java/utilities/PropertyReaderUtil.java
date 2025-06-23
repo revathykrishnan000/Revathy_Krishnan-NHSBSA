@@ -9,8 +9,8 @@ import java.util.Properties;
 public class PropertyReaderUtil {
     public String readFileData(String properties) {
         Properties prop = new Properties();
-        File file = new File("src/test/resources/properties/QA.properties");
-        // File file = new File("Resources/properties/QA.properties");
+        //File file = new File("src/test/resources/properties/QA.properties");
+        File file = new File("Resources/properties/QA.properties");
         FileInputStream fileInput = null;
         try {
             fileInput = new FileInputStream(file);
