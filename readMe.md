@@ -60,6 +60,7 @@ Copy the entire properties/ folder (from src/test/resources/) into the run_env f
 Navigate to your run_env directory in your terminal or command prompt and run the following command:
 
 java -DbrowserName=Chrome -jar NHSJobsAutomation-1.0.jar
+
 -DbrowserName=Chrome: Specifies that tests should run on the Chrome browser. (You might extend this to support other browsers if implemented).
 -DbrowserName=Firefox: Specifies that tests should run on the Firefox browser. (You might extend this to support other browsers if implemented).
 -DbrowserName=HeadlessFirefox: Specifies that tests should run on the HeadlessFirefox browser. (You might extend this to support other browsers if implemented).
