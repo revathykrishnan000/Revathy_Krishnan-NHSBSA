@@ -36,13 +36,16 @@ Before you begin, ensure you have the following installed:
 * ChromeDriver:The tool automatically downloads the necessary browser drivers
 
 ### 📦 Build Commands
+Download the zip file and extract to a location
+
+Navigate to your project directory in your terminal (eg: Documents\Revathy_Krishnan-NHSBSA-main\Revathy_Krishnan-NHSBSA-main)
 
 To compile the project and create the executable JAR file:
 
 * Clean and Install (skipping tests):
 
-mvn clean install -Dmaven.test.skip=true
-This command will build the project and package it into an executable JAR (e.g., NHSJobsAutomation-1.0.jar) in the target/ directory, without running the tests during the build process.
+Open command line and run mvn clean install -Dmaven.test.skip=true
+This command will build the project and package it into an executable JAR (e.g., NHSJobsAutomation-1.0.jar) in the target directory, without running the tests during the build process.
 
 * 🏃 Running Tests (Development Workflow)
 
@@ -57,6 +60,7 @@ Copy the generated JAR file (NHSJobsAutomation-1.0.jar) from your project's targ
 Create a resources folder inside run_env folder.
 
 Copy the entire features folder (typically found in src/test/resources/) into the resources folder.
+
 Copy the entire properties folder (from src/test/resources/) into the resources folder.
 
 * Execute Tests:
