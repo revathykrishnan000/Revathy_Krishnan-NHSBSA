@@ -9,8 +9,8 @@ public class TestRunner extends Main {
     private static String[] defaultOptions = {
             "--glue", "stepDefinitions",
             "--plugin", "pretty",
-            "--plugin", "html:cucumber-reports/",
-            "resources/features"
+            "--plugin","html:target/cucumber-reports/cucumber-html-report.html",
+            "classpath:features"
     };
 
     public static void main(String args[]) {
