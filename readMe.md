@@ -51,7 +51,7 @@ Once the JAR is built, you can execute the tests from your command line.
 * Prepare the Execution Environment:
 
 Create a dedicated directory for running the tests (e.g., run_env).
-Copy the generated JAR file (NHSJobsAutomation-1.0.jar) from your project's target/ directory into your run_env folder.
+Copy the generated JAR file (NHSJobsAutomation-1.0.jar) from your project's target directory into your run_env folder.
 Copy the entire features/ folder (typically found in src/test/resources/) into the run_env folder.
 Copy the entire properties/ folder (from src/test/resources/) into the run_env folder.
 
