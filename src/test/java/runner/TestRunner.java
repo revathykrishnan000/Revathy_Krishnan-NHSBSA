@@ -1,19 +1,24 @@
 package runner;
-import org.junit.runner.RunWith;
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-    @RunWith(Cucumber.class)
-    @CucumberOptions(
-            features = "src\\test\\resources\\features", // Path to feature files
-            glue = "stepDefinitions",                          // Path to step definitions
-            plugin = {"pretty",                      // Pretty console output
-                    "html:target/cucumber-reports/cucumber-html-report.html", // HTML report
-                    "json:target/cucumber-reports/cucumber.json",           // JSON report
-                    "junit:target/cucumber-reports/cucumber.xml"},          // JUnit XML report
-            monochrome = true,                       // Readable console output
-            snippets = CucumberOptions.SnippetType.CAMELCASE, // Generate camelCase snippets
-            dryRun = false                           // Set to true to check for unimplemented steps
-    )
-    public class TestRunner {
+import io.cucumber.core.cli.Main;
+
+import java.util.Arrays;
+import java.util.stream.Stream;
+
+
+public class TestRunner extends Main {
+    private static String[] defaultOptions = {
+            "--glue", "stepDefinitions",
+            "--plugin", "pretty",
+            "--plugin", "html:cucumber-reports/",
+            "resources/features"
+    };
+
+    public static void main(String args[]) {
+        args = Stream.concat(Arrays.stream(defaultOptions), Arrays.stream(args))
+                .toArray(String[]::new);
+        run(args, Thread.currentThread().getContextClassLoader());
+        System.exit(0);
     }
+}
+
 

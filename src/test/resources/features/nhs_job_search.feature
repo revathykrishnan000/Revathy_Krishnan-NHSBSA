@@ -16,12 +16,12 @@ Feature: NHS Job Search
 
     Examples:
       | keyword           | location   | distance | employer | pay_range          | sort_by              |
-#      |                   |            |          |          | £40,000 to £50,000 | Date Posted (newest) |
-#      | Doc               |            |          |          |                    | Date Posted (newest) |
-#      | Admin             | Birmingham |          | Trust    |                    | Date Posted (newest) |
-#      |                   | Manchester | +5 Miles |          |                    | Date Posted (newest) |
-#      |                   |            |          | Trust    |                    | Date Posted (newest) |
-#      |                   | Glasgow    |          |          |                    | Date Posted (newest) |
+      |                   |            |          |          | £40,000 to £50,000 | Date Posted (newest) |
+      | Doc               |            |          |          |                    | Date Posted (newest) |
+      | Admin             | Birmingham |          | Trust    |                    | Date Posted (newest) |
+      |                   | Manchester | +5 Miles |          |                    | Date Posted (newest) |
+      |                   |            |          | Trust    |                    | Date Posted (newest) |
+      |                   | Glasgow    |          |          |                    | Date Posted (newest) |
       | Advanced Clinical | Whitehaven | +5 Miles | Trust    |                    | Date Posted (newest) |
       |                   |            |          |          |                    | Date Posted (newest) |
       |                   |            |          |          | £10,000 to £20,000 | Date Posted (newest) |

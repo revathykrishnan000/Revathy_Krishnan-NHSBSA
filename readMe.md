@@ -27,12 +27,12 @@ Follow these instructions to set up and run the automation tests on your local m
 
 Before you begin, ensure you have the following installed:
 
-*   Java Development Kit (JDK): Version 11 or higher.
-* Download JDK
+* Java Development Kit (JDK): Version 11 or higher.
+  * Download JDK
 * Apache Maven: Version 3.6.0 or higher.
-* Download Maven
+  * Download Maven
 * Google Chrome Browser: The automation is configured to run on Chrome by default.
-* Download Chrome
+  * Download Chrome
 * ChromeDriver:The tool automatically downloads the necessary browser drivers
 
 ### 📦 Build Commands
@@ -59,7 +59,7 @@ Copy the entire properties/ folder (from src/test/resources/) into the run_env f
 
 Navigate to your run_env directory in your terminal or command prompt and run the following command:
 
-java -DbrowserName=Chrome -jar NHSJobsAutomation-1.0.jar 
+mvn test -DbrowserName=Chrome  
 -DbrowserName=Chrome: Specifies that tests should run on the Chrome browser. (You might extend this to support other browsers if implemented).
 -DbrowserName=Firefox: Specifies that tests should run on the Firefox browser. (You might extend this to support other browsers if implemented).
 -DbrowserName=HeadlessFirefox: Specifies that tests should run on the HeadlessFirefox browser. (You might extend this to support other browsers if implemented).
