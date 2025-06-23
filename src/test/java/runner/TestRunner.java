@@ -10,7 +10,7 @@ public class TestRunner extends Main {
             "--glue", "stepDefinitions",
             "--plugin", "pretty",
             "--plugin","html:cucumber-reports/cucumber-html-report.html",
-            "classpath:features"
+            "resources:features"
     };
 
     public static void main(String args[]) {
