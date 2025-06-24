@@ -73,7 +73,7 @@ java -DbrowserName=Chrome -jar NHSJobsAutomation-1.0.jar
 
 After the test execution completes, all generated reports will be found in the following directory:
 
-Reports Location: cucumber-reports/
+Reports Location: target/cucumber-reports/
 
 This directory will contain detailed reports on the test execution, including:
 

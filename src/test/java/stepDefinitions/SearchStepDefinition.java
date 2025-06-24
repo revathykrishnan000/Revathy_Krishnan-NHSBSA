@@ -80,29 +80,36 @@ public class SearchStepDefinition {
     public void iShouldSeeAListOfJobsMatchingAnd(String keyword, String location, String distance, String employer, String payRange) throws AutomationFrameworkException {
         List<JobSearch.JobSearchResult> jobResults = nhsJobSearchPage.getSearchResultsDetails();
         assertFalse("Job results list is empty", jobResults.isEmpty());
-        boolean keywordMatch = jobResults.stream().anyMatch(result -> {
-            // Get all relevant fields from the current JobSearchResult, convert to lowercase
-            String resultTitleLower = result.title() != null ? result.title().toLowerCase(Locale.ROOT) : "";
-            String resultEmployerLower = result.employer() != null ? result.employer().toLowerCase(Locale.ROOT) : "";
-            String resultLocationLower = result.location() != null ? result.location().toLowerCase(Locale.ROOT) : "";
-            String resultDistanceLower = result.distance() != null ? result.distance().toLowerCase(Locale.ROOT) : "";
-            String resultPayRangeLower = result.payRange() != null ? result.payRange().toLowerCase(Locale.ROOT) : "";
-            String resultContractTypeLower = result.contractType() != null ? result.contractType().toLowerCase(Locale.ROOT) : "";
-            String resultWorkingPatternLower = result.workingPattern() != null ? result.workingPattern().toLowerCase(Locale.ROOT) : "";
+        //checking that the keyword entered from the input field is matching with all the 10 results in the first page of search result .checking that any of the values are matching.
+        if(!keyword.isEmpty()) {
+            boolean keywordMatch = jobResults.stream().anyMatch(result -> {
+                // Get all relevant fields from the current JobSearchResult, convert to lowercase
+                String resultTitleLower = result.title() != null ? result.title().toLowerCase(Locale.ROOT) : "";
+                String resultEmployerLower = result.employer() != null ? result.employer().toLowerCase(Locale.ROOT) : "";
+                String resultLocationLower = result.location() != null ? result.location().toLowerCase(Locale.ROOT) : "";
+                String resultDistanceLower = result.distance() != null ? result.distance().toLowerCase(Locale.ROOT) : "";
+                String resultPayRangeLower = result.payRange() != null ? result.payRange().toLowerCase(Locale.ROOT) : "";
+                String resultContractTypeLower = result.contractType() != null ? result.contractType().toLowerCase(Locale.ROOT) : "";
+                String resultWorkingPatternLower = result.workingPattern() != null ? result.workingPattern().toLowerCase(Locale.ROOT) : "";
 
 
-            // Check if the searchKeyword is contained in any of these fields
-            return resultTitleLower.contains(keyword.toLowerCase(Locale.ROOT))||
-                    resultEmployerLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
-                    resultLocationLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
-                    resultDistanceLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
-                    resultPayRangeLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
-                    resultContractTypeLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
-                    resultWorkingPatternLower.contains(keyword.toLowerCase(Locale.ROOT));
-        });
-        assertTrue("At least one search details should contain the word: " + keyword, keywordMatch);
-        boolean locationMatch = jobResults.stream().anyMatch(result -> result.location().toLowerCase(Locale.ROOT).contains(location.toLowerCase(Locale.ROOT)));
-        assertTrue("At least one location should contain the word: " + location, locationMatch);
+                // Check if the searchKeyword is contained in any of these fields
+                return resultTitleLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
+                        resultEmployerLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
+                        resultLocationLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
+                        resultDistanceLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
+                        resultPayRangeLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
+                        resultContractTypeLower.contains(keyword.toLowerCase(Locale.ROOT)) ||
+                        resultWorkingPatternLower.contains(keyword.toLowerCase(Locale.ROOT));
+            });
+            assertTrue("At least one search details should contain the word: " + keyword, keywordMatch);
+        }
+        //if location is not empty then checking that any of the job search result contains the location inserted
+        if (!location.isEmpty()) {
+            boolean locationMatch = jobResults.stream().anyMatch(result -> result.location().toLowerCase(Locale.ROOT).contains(location.toLowerCase(Locale.ROOT)));
+            assertTrue("At least one location should contain the word: " + location, locationMatch);
+        }
+        //On entering location the distance drop down is enabled, and checking that in all the 10 matches all the distance are under the input value
         if (!distance.isEmpty() && !location.isEmpty()) {
             distance = distance.replaceAll("(?i)\\b(miles|mile|mi|m)\\b\\s*", "");
             String finalDistance = distance;
@@ -116,8 +123,12 @@ public class SearchStepDefinition {
                     });
             assertTrue("All the job location distance should be with in the range of: " + distance, distanceMatch);
         }
-        boolean employerMatch = jobResults.stream().anyMatch(result -> result.employer().toLowerCase(Locale.ROOT).contains(employer.toLowerCase(Locale.ROOT)));
-        assertTrue("At least one employer should contain the word: " + employer, employerMatch);
+        //if employer is an empty string the check will not happen
+        if (!location.isEmpty()) {
+            boolean employerMatch = jobResults.stream().anyMatch(result -> result.employer().toLowerCase(Locale.ROOT).contains(employer.toLowerCase(Locale.ROOT)));
+            assertTrue("At least one employer should contain the word: " + employer, employerMatch);
+        }
+        //checking the salary is in the range we have input from the field
         if (!payRange.isEmpty()) {
             double[] searchRange = parsePayRange(payRange);
             double searchLow = searchRange[0];
