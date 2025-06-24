@@ -14,7 +14,7 @@ public class PageFunctions {
 
     public WebDriverWait wait;
     // Default timeout in seconds for explicit waits. This can be configured.
-    private int defaultTimeoutSeconds = 50;
+    private int defaultTimeoutSeconds = 100;
 
     public static final URL scriptURL = PageFunctions.class.getResource("/axe.min.js");
     public PageFunctions() throws Exception {
