@@ -53,19 +53,12 @@ Once the JAR is built, you can execute the tests from your command line.
 
 * Prepare the Execution Environment:
 
-Create a dedicated directory for running the tests (e.g., run_env).
-
-Copy the generated JAR file (NHSJobsAutomation-1.0.jar) from your project's target directory into your run_env folder.
-
-Create a resources folder inside run_env folder.
-
-Copy the entire features folder (typically found in src/test/resources/) into the resources folder.
-
-Copy the entire properties folder (from src/test/resources/) into the resources folder.
+To run the application, ensure the nhsjobsautomation-1.0.jar file is in the target directory.
+This directory should also contain a resources folder, which holds your feature files and properties. If you need to add more test data, update the relevant feature file and save your changes.
 
 * Execute Tests:
 
-Navigate to your run_env directory in your terminal or command prompt and run the following command:
+Navigate to your target directory in your terminal or command prompt and run the following command:
 
 java -DbrowserName=Chrome -jar NHSJobsAutomation-1.0.jar 
 
