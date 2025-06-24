@@ -19,7 +19,7 @@ public class BrowserConfig {
         if(environmentLink==null)
             environmentLink ="HOST_ENV_OPERATOR";
         if (browserName == null)
-            browserName = "Firefox";
+            browserName = "Chrome";
         System.out.println("Running on " + browserName);
         switch (browserName) {
             case "Firefox":
