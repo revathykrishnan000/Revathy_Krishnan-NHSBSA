@@ -29,7 +29,7 @@ Before you begin, ensure you have the following installed:
 
 * Java Development Kit (JDK): Version 21.
   * Download JDK
-* Apache Maven: Version 3.9.10 or higher.
+* Apache Maven: Version 3.9.10 .
   * Download Maven
 * Google Chrome Browser: The automation is configured to run on Chrome by default.
   * Download Chrome
