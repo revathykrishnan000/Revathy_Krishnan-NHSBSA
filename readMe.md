@@ -27,7 +27,7 @@ Follow these instructions to set up and run the automation tests on your local m
 
 Before you begin, ensure you have the following installed:
 
-* Java Development Kit (JDK): Version 21 or higher.
+* Java Development Kit (JDK): Version 21.
   * Download JDK
 * Apache Maven: Version 3.9.10 or higher.
   * Download Maven
