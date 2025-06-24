@@ -122,7 +122,7 @@
                     <goal>copy-resources</goal>
                 </goals>
                     <configuration>
-                        <outputDirectory>${project.build.directory}/target/resources</outputDirectory>
+                        <outputDirectory>${project.build.directory}/resources</outputDirectory>
                         <resources>
                             <resource>
                                 <directory>src/test/resources/features</directory>
