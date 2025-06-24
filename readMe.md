@@ -53,7 +53,7 @@ Once the JAR is built, you can execute the tests from your command line.
 
 * Prepare the Execution Environment:
 
-To run the application, ensure the nhsjobsautomation-1.0.jar file is in the target directory.
+To run the application, ensure the NHSJobsAutomation-1.0.jar file is in the target directory.
 This directory should also contain a resources folder, which holds your feature files and properties. If you need to add more test data, update the relevant feature file and save your changes.
 
 * Execute Tests:
