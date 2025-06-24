@@ -124,7 +124,7 @@ public class SearchStepDefinition {
             assertTrue("All the job location distance should be with in the range of: " + distance, distanceMatch);
         }
         //if employer is an empty string the check will not happen
-        if (!location.isEmpty()) {
+        if (!employer.isEmpty()) {
             boolean employerMatch = jobResults.stream().anyMatch(result -> result.employer().toLowerCase(Locale.ROOT).contains(employer.toLowerCase(Locale.ROOT)));
             assertTrue("At least one employer should contain the word: " + employer, employerMatch);
         }
