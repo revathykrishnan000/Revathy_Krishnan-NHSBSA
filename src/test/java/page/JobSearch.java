@@ -346,7 +346,15 @@ public class JobSearch extends PageFunctions {
         } else {
             // Attempt to parse as an absolute date like "20 June 2025"
             try {
-                return LocalDate.parse(dateString, DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ENGLISH));
+                // handling 9 july, 09 july ,22 july
+                String cleaned = dateString
+                        .replaceAll("(?i)(\\d{1,2})([a-zA-Z])", "$1 $2")  // insert space if missing
+                        .replaceAll("\\s+", " ")                         // collapse multiple spaces
+                        .trim();
+
+                // Capitalize the first letter of the month (optional, Locale can also help)
+                cleaned = cleaned.substring(0, 1).toUpperCase() + cleaned.substring(1);
+                return LocalDate.parse(cleaned, DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.ENGLISH));
             } catch (DateTimeParseException e) {
                 System.err.println("WARN: Unrecognized date format for absolute date: '" + dateString + "'. Error: " + e.getMessage());
                 return null; // Parsing failed for absolute date
